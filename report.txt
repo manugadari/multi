@@ -1,0 +1,104 @@
+
+Testing E:\snyk\fullstack-bank ...
+
+ ✗ [Low] Hardcoded Secret 
+   Path: app/backend/src/__tests__/integration/mocks/usersMocks.ts, line 104 
+   Info: Hardcoded value is used as a salt (in bcryptjs.hashSync). Generate the value with a cryptographically strong random number generator and do not hardcode it in source code.
+
+ ✗ [Low] Hardcoded Secret 
+   Path: app/backend/src/__tests__/integration/mocks/usersMocks.ts, line 119 
+   Info: Hardcoded value is used as a salt (in bcryptjs.hashSync). Generate the value with a cryptographically strong random number generator and do not hardcode it in source code.
+
+ ✗ [Low] Use of Hardcoded Credentials 
+   Path: app/backend/src/__tests__/integration/mocks/usersMocks.ts, line 7 
+   Info: Do not hardcode passwords in code. Found hardcoded password used in password.
+
+ ✗ [Low] Use of Hardcoded Credentials 
+   Path: app/backend/src/__tests__/integration/mocks/usersMocks.ts, line 12 
+   Info: Do not hardcode passwords in code. Found hardcoded password used in password.
+
+ ✗ [Low] Use of Hardcoded Credentials 
+   Path: app/backend/src/__tests__/integration/mocks/usersMocks.ts, line 20 
+   Info: Do not hardcode passwords in code. Found hardcoded password used in password.
+
+ ✗ [Low] Use of Hardcoded Credentials 
+   Path: app/backend/src/__tests__/integration/mocks/usersMocks.ts, line 24 
+   Info: Do not hardcode passwords in code. Found hardcoded password used in password.
+
+ ✗ [Low] Use of Hardcoded Credentials 
+   Path: app/backend/src/__tests__/integration/mocks/usersMocks.ts, line 27 
+   Info: Do not hardcode passwords in code. Found hardcoded password used in password.
+
+ ✗ [Low] Use of Hardcoded Credentials 
+   Path: app/backend/src/__tests__/integration/mocks/usersMocks.ts, line 34 
+   Info: Do not hardcode passwords in code. Found hardcoded password used in password.
+
+ ✗ [Low] Use of Hardcoded Credentials 
+   Path: app/backend/src/__tests__/integration/mocks/usersMocks.ts, line 42 
+   Info: Do not hardcode passwords in code. Found hardcoded password used in password.
+
+ ✗ [Low] Use of Hardcoded Credentials 
+   Path: app/backend/src/__tests__/integration/mocks/usersMocks.ts, line 51 
+   Info: Do not hardcode passwords in code. Found hardcoded password used in password.
+
+ ✗ [Low] Use of Hardcoded Credentials 
+   Path: app/backend/src/__tests__/integration/mocks/usersMocks.ts, line 58 
+   Info: Do not hardcode passwords in code. Found hardcoded password used in password.
+
+ ✗ [Low] Use of Hardcoded Credentials 
+   Path: app/backend/src/__tests__/integration/mocks/usersMocks.ts, line 61 
+   Info: Do not hardcode passwords in code. Found hardcoded password used in password.
+
+ ✗ [Low] Use of Hardcoded Credentials 
+   Path: app/backend/src/__tests__/integration/mocks/usersMocks.ts, line 65 
+   Info: Do not hardcode passwords in code. Found hardcoded password used in password.
+
+ ✗ [Low] Use of Hardcoded Credentials 
+   Path: app/backend/src/__tests__/integration/mocks/usersMocks.ts, line 69 
+   Info: Do not hardcode passwords in code. Found hardcoded password used in password.
+
+ ✗ [Low] Use of Hardcoded Credentials 
+   Path: app/backend/src/__tests__/integration/mocks/usersMocks.ts, line 77 
+   Info: Do not hardcode passwords in code. Found hardcoded password used in password.
+
+ ✗ [Low] Use of Hardcoded Credentials 
+   Path: app/backend/src/__tests__/integration/mocks/usersMocks.ts, line 81 
+   Info: Do not hardcode passwords in code. Found hardcoded password used in password.
+
+ ✗ [Medium] Information Exposure 
+   Path: app/backend/src/app.ts, line 12 
+   Info: Disable X-Powered-By header for your Express app (consider using Helmet middleware), because it exposes information about the used framework to potential attackers.
+
+ ✗ [Medium] Cross-Site Request Forgery (CSRF) 
+   Path: app/backend/src/app.ts, line 12 
+   Info: CSRF protection is disabled for your Express app. This allows the attackers to execute requests on a user's behalf.
+
+ ✗ [Medium] Use of Hardcoded Credentials 
+   Path: app/backend/src/services/strategies/validators/UserValidator.ts, line 9 
+   Info: Do not hardcode passwords in code. Found hardcoded password used in PASSWORD_PATTERN_MSG.
+
+ ✗ [Medium] Use of Hardcoded Credentials 
+   Path: app/backend/src/database/seeders/20221121012607-populate-users.js, line 10 
+   Info: Do not hardcode passwords in code. Found hardcoded password used in password.
+
+ ✗ [Medium] Use of Hardcoded Credentials 
+   Path: app/backend/src/database/seeders/20221121012607-populate-users.js, line 16 
+   Info: Do not hardcode passwords in code. Found hardcoded password used in password.
+
+ ✗ [High] Hardcoded Secret 
+   Path: app/backend/src/services/UserService.ts, line 43 
+   Info: Hardcoded value is used as a salt (in bcryptjs.hash). Generate the value with a cryptographically strong random number generator and do not hardcode it in source code.
+
+
+✔ Test completed
+
+Organization:      manugadari
+Test type:         Static code analysis
+Project path:      E:\snyk\fullstack-bank
+
+Summary:
+
+  22 Code issues found
+  1 [High]   5 [Medium]   16 [Low] 
+
+
