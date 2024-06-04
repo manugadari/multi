@@ -5,15 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.6</version>
+		<version>2.6.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.javaproject</groupId>
-	<artifactId>database_service_project</artifactId>
-	<version>0.0.2</version>
-	<name>database_service_project</name>
-	<description>Project for Spring Boot</description>
-	<packaging>jar</packaging>
+	<groupId>ca.mihye_bang</groupId>
+	<artifactId>Assignment3_MihyeBang</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Assignment3_MihyeBang</name>
+	<description>Assignment 3</description>
 	<properties>
 		<java.version>11</java.version>
 		<jacoco.version>0.8.7</jacoco.version>
@@ -21,19 +20,8 @@
     		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
     		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
     		<sonar.language>java</sonar.language>
-		
 	</properties>
-
 	<dependencies>
-		<dependency>
-			<groupId>org.thymeleaf.extras</groupId>
-			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jdbc</artifactId>
@@ -46,15 +34,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -66,17 +51,22 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
     <groupId>org.jacoco</groupId> 
     <artifactId>jacoco-maven-plugin</artifactId>
     <version>0.8.7</version>
 </dependency>
 	</dependencies>
+
+	<distributionManagement>
+        <repository>
+            <id>maven-releases</id>
+            <url>http://65.2.144.134:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <url>http://65.2.144.134:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 	<build>
 		<plugins>
@@ -115,7 +105,5 @@
 </plugin>
 		</plugins>
 	</build>
-
-	
 
 </project>
