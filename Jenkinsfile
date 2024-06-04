@@ -2,10 +2,11 @@ pipeline {
   agent any
 
   stages {
-    stage('sast scan') {
-      steps {
-         sh './snyk test'
-    }
+    stage('Snyk Test using Snyk CLI') {
+            steps {
+                sh './snyk test'
+            }
+        }
     stage('Test') {
       steps {
         echo 'Testing...'
