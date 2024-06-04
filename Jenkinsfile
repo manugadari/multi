@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Snyk Test using Snyk CLI') {
             steps {
-                sh './snyk test'
+                sh './SNYK test'
             }
         }
     stage('Test') {
