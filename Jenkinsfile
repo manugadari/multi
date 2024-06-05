@@ -1,26 +1,17 @@
 pipeline {
-    agent any
-
-    tools {
-        maven 'MAVEN' // Refers to a global tool configuration for Maven called 'maven-3.6.0'
-    }
-
-    environment {
-        SNYK_TOKEN = credentials('SNYK_TOKEN')
-    }
-
+  agent any
     stages {
- 
-        stage('Snyk Test using Snyk CLI') {
+        stage('Authorize Snyk CLI') {
             steps {
-                sh './snyk code test'
-            }
-        }
-
-        stage('Snyk Monitor using Snyk CLI') {
+                withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
+                    sh 'snyk auth ${SNYK_TOKEN}'
+                }
+             }
+          }
+         stage('SAST SCAN') {
             steps {
-                sh './snyk monitor --org=manugadari'
+                sh 'snyk code test>>report.txt'
+                }
             }
         }
     }
-}
