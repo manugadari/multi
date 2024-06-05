@@ -10,7 +10,7 @@ pipeline {
           }
          stage('SAST SCAN') {
             steps {
-                sh 'snyk code test>>report.txt'
+                sh 'snyk code test'
                 }
             }
         }
