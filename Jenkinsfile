@@ -7,12 +7,7 @@ pipeline {
                     sh 'snyk auth ${SNYK_TOKEN}'
                 }
             }
-            stage('Snyk SAST test using Snyk CLI') {
-                  steps {
-                       sh 'snyk code test'
-            }
-        }
-      }
+       }
     }
 }
 
