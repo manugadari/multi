@@ -3,7 +3,7 @@ pipeline {
   
 
   stages {
-    
+     
     stage('Authorize Snyk CLI') {
             steps {
                 withCredentials([string(credentialsId: 'SNYK_API_TOKEN', variable: 'SNYK_API_TOKEN')]) {
