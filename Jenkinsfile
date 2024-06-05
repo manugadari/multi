@@ -1,8 +1,7 @@
 pipeline {
   agent any
   
-
-  stages {
+   stages {
      
     stage('Authorize Snyk CLI') {
             steps {
@@ -22,4 +21,5 @@ pipeline {
       }
     }
  }
+}
 }
