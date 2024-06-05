@@ -19,5 +19,6 @@ pipeline {
     stage('Snyk SCA using Snyk CLI') {
             steps {
                 sh 'snyk test'
-  }
-}
+      }
+    }
+ }
