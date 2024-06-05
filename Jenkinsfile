@@ -10,7 +10,7 @@ pipeline {
           }
          stage('SAST SCAN') {
             steps {
-                sh 'snyk code test --severity-threshold=critical  '
+                sh 'snyk code test --severity-threshold=high --fail-on=patchable  '
                 }
             }
         }
