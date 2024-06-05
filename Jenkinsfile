@@ -8,12 +8,11 @@ pipeline {
                 }
              }
           }
-
-        stage('SAST SCAN') {
+         stage('SAST SCAN') {
             steps {
                 sh 'snyk code test'{
                 }
             }
-       }
+        }
     }
 }
