@@ -8,8 +8,8 @@ pipeline {
                 }
             }
             stage('Snyk SAST test using Snyk CLI') {
-               steps {
-                sh 'snyk code test'
+                  steps {
+                       sh 'snyk code test'
             }
         }
       }
