@@ -1,15 +1,16 @@
 pipeline {
-  agent any
-  
+    agent any
 
-  stages {
-       stage('Download Snyk CLI') {
+    stages {
+
+        // Not required if you just install the Snyk CLI on your Agent
+        stage('Download Latest Snyk CLI') {
             steps {
                 sh '''
-                    latest_version=$(curl -Is "https://github.com/snyk/snyk/releases/latest" | grep "^location" | sed s#.*tag/##g | tr -d "\r")
+                    latest_version=$(curl -Is "https://github.com/snyk/cli/releases/latest" | grep "^location" | sed s#.*tag/##g | tr -d "\r")
                     echo "Latest Snyk CLI Version: ${latest_version}"
 
-                    snyk_cli_dl_linux="https://github.com/snyk/snyk/releases/download/${latest_version}/snyk-linux"
+                    snyk_cli_dl_linux="https://github.com/snyk/cli/releases/download/${latest_version}/snyk-linux"
                     echo "Download URL: ${snyk_cli_dl_linux}"
 
                     curl -Lo ./snyk "${snyk_cli_dl_linux}"
@@ -19,11 +20,5 @@ pipeline {
                 '''
             }
         }
-
-    stage('Deploy') {
-      steps {
-        echo 'Deploying...'
-      }
     }
-  }
 }
