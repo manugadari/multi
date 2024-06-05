@@ -1,9 +1,7 @@
 pipeline {
-    agent any
-
+  agent any
     stages {
-
-       stage('Authorize Snyk CLI') {
+        stage('Authorize Snyk CLI') {
             steps {
                 withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
                     sh 'snyk auth ${SNYK_TOKEN}'
@@ -11,3 +9,4 @@ pipeline {
             }
        }
     }
+}
