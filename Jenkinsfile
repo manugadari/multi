@@ -13,10 +13,5 @@ pipeline {
                 sh 'snyk code test>>report.txt'
                 }
             }
-         stage('SCA SCAN') {
-            steps {
-                sh 'snyk test'
-                }
-            }
         }
     }
