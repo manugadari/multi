@@ -5,9 +5,7 @@ pipeline {
     
         stage('Git checkout') {
             steps {
-                sh 'git fetch origin' 
-                sh 'git diff master -- feature-2'
-                 }
+                git branch: '', url: 'https://github.com/manugadari/multi'
             }
         }
 }
