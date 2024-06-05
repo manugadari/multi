@@ -12,7 +12,7 @@ pipeline {
                 // Checkout the specified branch
                 script {
                     checkout([$class: 'GitSCM', branches: [[name: "*/${feature-2}"]],
-                              userRemoteConfigs: [[url: 'https://your-repo-url.git']]])
+                              userRemoteConfigs: [[url: 'https://github.com/manugadari/multi']]])
                 }
             }
         }
