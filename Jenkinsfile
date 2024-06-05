@@ -1,34 +1,17 @@
 pipeline {
   agent any
-  
-
-  stages {
-     
-    stage('Authorize Snyk CLI') {
+    stages {
+        stage('Authorize Snyk CLI') {
             steps {
-                withCredentials([string(credentialsId: 'SNYK_API_TOKEN', variable: 'SNYK_API_TOKEN')]) {
-                    sh 'snyk auth ${SNYK_API_TOKEN}'
+                withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
+                    sh 'snyk auth ${SNYK_TOKEN}'
+                }
+             }
+          }
+         stage('SAST SCAN') {
+            steps {
+                sh 'snyk code test>>report.txt'
                 }
             }
         }
-
-    stage('Snyk Test using Snyk CLI') {
-            steps {
-                sh './SNYK test'
-            }
-        }
-    stage('Test') {
-      steps {
-        echo 'Testing...'
-        
-          snykSecurity failOnError: false, failOnIssues: false, severity: 'critical', snykInstallation: 'SNYK', snykTokenId: 'SNYK_API_TOKEN'
-        
-      }
     }
-    stage('Deploy') {
-      steps {
-        echo 'Deploying...'
-      }
-    }
-  }
-}
