@@ -7,5 +7,6 @@ pipeline {
             steps {
                 git branch: '', url: 'https://github.com/manugadari/multi'
             }
-        }
+         }
+    }
 }
