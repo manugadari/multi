@@ -10,25 +10,14 @@ pipeline {
                     sh 'snyk auth ${SNYK_TOKEN}'
                 }
             }
-        }
 
-    stage('Snyk Test using Snyk CLI') {
+    stage('Snyk SAST test using Snyk CLI') {
             steps {
                 sh 'snyk code test'
             }
         }
-    stage('Test') {
-      steps {
-        echo 'Testing...'
-        
-          snykSecurity failOnError: false, failOnIssues: false, severity: 'critical', snykInstallation: 'SNYK', snykTokenId: 'SNYK_API_TOKEN'
-        
-      }
-    }
-    stage('Deploy') {
-      steps {
-        echo 'Deploying...'
-      }
-    }
+    stage('Snyk SCA using Snyk CLI') {
+            steps {
+                sh 'snyk test'
   }
 }
