@@ -3,28 +3,23 @@ pipeline {
   
 
   stages {
-     
-    stage('Authorize Snyk CLI') {
+       stage('Download Snyk CLI') {
             steps {
-                withCredentials([string(credentialsId: 'SNYK_API_TOKEN', variable: 'SNYK_API_TOKEN')]) {
-                    sh 'snyk auth ${SNYK_API_TOKEN}'
-                }
+                sh '''
+                    latest_version=$(curl -Is "https://github.com/snyk/snyk/releases/latest" | grep "^location" | sed s#.*tag/##g | tr -d "\r")
+                    echo "Latest Snyk CLI Version: ${latest_version}"
+
+                    snyk_cli_dl_linux="https://github.com/snyk/snyk/releases/download/${latest_version}/snyk-linux"
+                    echo "Download URL: ${snyk_cli_dl_linux}"
+
+                    curl -Lo ./snyk "${snyk_cli_dl_linux}"
+                    chmod +x snyk
+                    ls -la
+                    ./snyk -v
+                '''
             }
         }
 
-    stage('Snyk Test using Snyk CLI') {
-            steps {
-                sh './SNYK test'
-            }
-        }
-    stage('Test') {
-      steps {
-        echo 'Testing...'
-        
-          snykSecurity failOnError: false, failOnIssues: false, severity: 'critical', snykInstallation: 'SNYK', snykTokenId: 'SNYK_API_TOKEN'
-        
-      }
-    }
     stage('Deploy') {
       steps {
         echo 'Deploying...'
