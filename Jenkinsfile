@@ -6,7 +6,7 @@ pipeline {
         stage('Git checkout') {
             steps {
                 sh 'git fetch origin' 
-                sh 'git diff master feature-2'
+                sh 'git diff master -- feature-2'
                  }
             }
         }
